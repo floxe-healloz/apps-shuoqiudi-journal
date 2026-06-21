@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>说球帝 · 再次遇见</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #faf9f7;
+            color: #1e1a18;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .page-wrap {
+            max-width: 660px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 60px 24px 40px;
+            flex: 1;
+        }
+
+        /* hero */
+        .hero {
+            margin-bottom: 52px;
+        }
+
+        .hero__label {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #a69f96;
+            margin-bottom: 12px;
+        }
+
+        .hero__title {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #1c1814;
+        }
+
+        .hero__title em {
+            font-style: normal;
+            border-bottom: 3px solid #d6cbbf;
+        }
+
+        .hero__sub {
+            margin-top: 24px;
+            font-size: 1.1rem;
+            color: #4d453e;
+            max-width: 480px;
+        }
+
+        .hero__sub a {
+            color: #1c1814;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            transition: color .2s;
+        }
+
+        .hero__sub a:hover {
+            color: #7f6b5a;
+        }
+
+        /* 通用章节 */
+        section {
+            margin-bottom: 52px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 20px;
+            color: #2b2622;
+        }
+
+        .section-text {
+            font-size: 1rem;
+            color: #3d3732;
+            margin-bottom: 12px;
+        }
+
+        .section-text + .section-text {
+            margin-top: 6px;
+        }
+
+        .muted {
+            color: #7f746c;
+            font-size: 0.95rem;
+        }
+
+        /* 优势卡片 */
+        .benefits-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            margin-top: 8px;
+        }
+
+        .benefit-item {
+            border-left: 2px solid #e2d9d0;
+            padding-left: 20px;
+        }
+
+        .benefit-item strong {
+            display: block;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #1f1b17;
+            margin-bottom: 4px;
+        }
+
+        .benefit-item span {
+            display: block;
+            color: #4f4842;
+            font-size: 0.95rem;
+        }
+
+        /* 场景提示 */
+        .scene-note {
+            background: #f3efe9;
+            border-radius: 24px;
+            padding: 24px 28px;
+            margin-top: 12px;
+        }
+
+        .scene-note p {
+            font-size: 0.95rem;
+            color: #3a342e;
+        }
+
+        .scene-note p + p {
+            margin-top: 14px;
+        }
+
+        /* FAQ摘要 */
+        .faq-mini {
+            border-top: 1px solid #e6ded6;
+            padding-top: 28px;
+            margin-top: 8px;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #2b2622;
+        }
+
+        .faq-a {
+            font-size: 0.95rem;
+            color: #4f4842;
+            margin-bottom: 20px;
+        }
+
+        .faq-a:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            border-top: 1px solid #e6ded6;
+            padding-top: 28px;
+            margin-top: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 28px;
+            align-items: baseline;
+        }
+
+        .footer-links a {
+            color: #4f4842;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color .2s, color .2s;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            border-bottom-color: #a69f96;
+            color: #1c1814;
+        }
+
+        .footer-links .home-link {
+            font-weight: 500;
+            color: #1c1814;
+        }
+
+        .footer-note {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #938a82;
+        }
+
+        /* 响应式 */
+        @media (max-width: 500px) {
+            .page-wrap {
+                padding: 40px 20px 32px;
+            }
+
+            .hero__title {
+                font-size: 2rem;
+            }
+
+            .hero__sub {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .benefit-item {
+                padding-left: 14px;
+            }
+
+            .scene-note {
+                padding: 18px 20px;
+            }
+
+            .footer-links {
+                gap: 10px 20px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .benefits-grid {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 20px 36px;
+            }
+
+            .benefit-item {
+                flex: 1 1 240px;
+                border-left: 2px solid #e2d9d0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <!-- hero -->
+    <header class="hero">
+        <div class="hero__label">· 常回来看看</div>
+        <h1 class="hero__title">
+            你熟悉的<em>说球帝</em><br>还在老地方
+        </h1>
+        <p class="hero__sub">
+            再次打开 <a href="https://apps-shuoqiudi.com">说球帝</a>，会发现界面、内容和节奏都保持着你当初喜欢的样子。走远了，记得回来。
+        </p>
+    </header>
+
+    <!-- 优势区：持续关注的理由 -->
+    <section>
+        <h2 class="section-title">为什么你会再次打开它</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <strong>收藏即入口</strong>
+                <span>把链接存入书签或桌面，每次想要查看时，直接唤出即可，不需要重新搜索。</span>
+            </div>
+            <div class="benefit-item">
+                <strong>信息流不过期</strong>
+                <span>内容持续更新，但不会为了吸引注意而堆砌杂乱信息。干净的列表，看完即走。</span>
+            </div>
+            <div class="benefit-item">
+                <strong>低调而稳定</strong>
+                <span>没有烦人的弹窗和夸张广告，像一个安静的站点，等你需要时自然出现。</span>
+            </div>
+            <div class="benefit-item">
+                <strong>场景无缝切换</strong>
+                <span>手机、平板、电脑 —— 响应设计让阅读体验保持一致，碎片时间也能快速浏览。</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 说明区：回访与收藏的默契 -->
+    <section>
+        <h2 class="section-title">收藏一个空间，比收藏一篇文章更长效</h2>
+        <p class="section-text">
+            很多时候我们收藏了一篇好文、一个视频，但链接很快失效或内容被覆盖。而一个像 <a href="https://apps-shuoqiudi.com" style="text-decoration:underline; text-underline-offset:2px; color:#1c1814;">说球帝</a> 这样长期维护的页面，值得留在浏览器的书签栏里。
+        </p>
+        <p class="section-text muted">
+            不需要每天登录，但当你想起时，它就在那里。收藏夹里存的不只是网址，更是一种随时可返回的熟悉感。
+        </p>
+
+        <div class="scene-note">
+            <p>
+                🏠 <strong>适合收藏的场景</strong><br>
+                看完比赛想查数据；睡前快速过一遍资讯；通勤路上打发时间 —— 这些时刻，从书签打开「说球帝」比重新搜索更省心。
+            </p>
+            <p>
+                📌 小提示：在 Safari 或 Chrome 中可以把「说球帝」添加到主屏幕，就像打开一个原生 App。
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ摘要 -->
+    <section class="faq-mini">
+        <h2 class="section-title">常见问题 · 摘要</h2>
+
+        <div class="faq-q">“我上次访问是几个月前，内容还一样吗？”</div>
+        <div class="faq-a">结构保持稳定，但资讯和文章会持续更新。页面不会突然改版让你找不到方向。</div>
+
+        <div class="faq-q">“需要注册或登录吗？”</div>
+        <div class="faq-a">不需要。直接打开即可浏览，没有账户体系，也没有跟踪提醒，完全匿名使用。</div>
+
+        <div class="faq-q">“手机端体验如何？”</div>
+        <div class="faq-a">布局自适应，字体清晰，按钮大小也适合手指操作。你可以把站点添加到主屏幕，体验接近本地应用。</div>
+    </section>
+
+    <!-- 底部链接 -->
+    <footer class="footer-links">
+        <a href="https://apps-shuoqiudi.com" class="home-link">说球帝</a>
+        <a href="https://apps-shuoqiudi.com">说球帝</a>
+        <a href="https://apps-shuoqiudi.com">说球帝</a>
+        <a href="https://apps-shuoqiudi.com">说球帝</a>
+        <div class="footer-note">
+            © 再次遇见 · 说球帝
+        </div>
+    </footer>
+</div>
+</body>
+</html>
